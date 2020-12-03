@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pranay Modukuru</title>
-    <link>https://pranaymodukuru.github.io/</link>
-      <atom:link href="https://pranaymodukuru.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <description>Pranay Modukuru</description>
+    <title>Mouad Zeghraoui</title>
+    <link>https://mouadzeghraoui.github.io/</link>
+      <atom:link href="https://mouadzeghraoui.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <description>Mouad Zeghraoui</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© Pranay Modukuru 2020</copyright><lastBuildDate>Thu, 16 Apr 2020 16:45:57 +0200</lastBuildDate>
     <image>
-      <url>https://pranaymodukuru.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
-      <title>Pranay Modukuru</title>
-      <link>https://pranaymodukuru.github.io/</link>
+      <url>https://mouadzeghraoui.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Mouad Zeghraoui</title>
+      <link>https://mouadzeghraoui.github.io/</link>
     </image>
     
     <item>
       <title>Customer Segmentation and Acquisition using Machine Learning</title>
-      <link>https://pranaymodukuru.github.io/post/customer-segmentation/</link>
+      <link>https://mouadzeghraoui.github.io/post/customer-segmentation/</link>
       <pubDate>Thu, 16 Apr 2020 16:45:57 +0200</pubDate>
-      <guid>https://pranaymodukuru.github.io/post/customer-segmentation/</guid>
+      <guid>https://mouadzeghraoui.github.io/post/customer-segmentation/</guid>
       <description>&lt;p&gt;
 &lt;a href=&#34;https://towardsdatascience.com/customer-segmentation-and-acquisition-using-machine-learning-a219ce0ec139?source=friends_link&amp;amp;sk=c7d662b4806a9e984f591d961e8d01e4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;View post&lt;/a&gt; on Medium.&lt;/p&gt;
 &lt;!-- ## Introduction
@@ -94,10 +94,10 @@ The data analysis started with replacing the misrecorded values to NaN values. T
 &lt;figure id=&#34;figure-columns-with-more-than-30-missing-values&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://pranaymodukuru.github.io/img/customer-segmentation-acquisition/miss_colwise.png&#34; data-caption=&#34;Columns with more than 30% missing values&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://mouadzeghraoui.github.io/img/customer-segmentation-acquisition/miss_colwise.png&#34; data-caption=&#34;Columns with more than 30% missing values&#34;&gt;
 
 
-  &lt;img src=&#34;https://pranaymodukuru.github.io/img/customer-segmentation-acquisition/miss_colwise.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://mouadzeghraoui.github.io/img/customer-segmentation-acquisition/miss_colwise.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -158,10 +158,10 @@ Although we have 353 features, not all of them will have variation, i.e. some fe
 &lt;figure id=&#34;figure-pca-explained-variance-plot&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://pranaymodukuru.github.io/img/customer-segmentation-acquisition/pca.png&#34; data-caption=&#34;PCA Explained Variance plot&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://mouadzeghraoui.github.io/img/customer-segmentation-acquisition/pca.png&#34; data-caption=&#34;PCA Explained Variance plot&#34;&gt;
 
 
-  &lt;img src=&#34;https://pranaymodukuru.github.io/img/customer-segmentation-acquisition/pca.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://mouadzeghraoui.github.io/img/customer-segmentation-acquisition/pca.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 
@@ -203,10 +203,10 @@ After the dimensionality reduction, the next step is to divide the general popul
 &lt;figure id=&#34;figure-cluster-proportions&#34;&gt;
 
 
-  &lt;a data-fancybox=&#34;&#34; href=&#34;https://pranaymodukuru.github.io/img/customer-segmentation-acquisition/cluster_percentages.png&#34; data-caption=&#34;Cluster proportions&#34;&gt;
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://mouadzeghraoui.github.io/img/customer-segmentation-acquisition/cluster_percentages.png&#34; data-caption=&#34;Cluster proportions&#34;&gt;
 
 
-  &lt;img src=&#34;https://pranaymodukuru.github.io/img/customer-segmentation-acquisition/cluster_percentages.png&#34; alt=&#34;&#34;  &gt;
+  &lt;img src=&#34;https://mouadzeghraoui.github.io/img/customer-segmentation-acquisition/cluster_percentages.png&#34; alt=&#34;&#34;  &gt;
 &lt;/a&gt;
 
 

@@ -1,2 +1,2 @@
-# pranaymodukuru.github.io
-My [portfolio](https://pranaymodukuru.github.io/)
+# mouadzeghraoui.github.io
+My [portfolio](https://mouadzeghraoui.github.io/)

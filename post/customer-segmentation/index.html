@@ -685,33 +685,49 @@
 
     <div class="article-style">
       <p>
-        <h1 id="sample-markdown">Sample Markdown</h1>
-        <p>This is some basic, sample markdown.</p>
-        <h2 id="second-heading">Second Heading</h2>
-        <ul>
-        <li>Unordered lists, and:<ol>
-        <li>One</li>
-        <li>Two</li>
-        <li>Three</li>
-        </ol>
-        </li>
-        <li>More</li>
-        </ul>
-        <blockquote>
-        <p>Blockquote</p>
-        </blockquote>
-        <p>And <strong>bold</strong>, <em>italics</em>, and even <em>italics and later <strong>bold</strong></em>. Even <del>strikethrough</del>. <a href="https://markdowntohtml.com">A link</a> to somewhere.</p>
-        <p>And code highlighting:</p>
-        <pre><code class="lang-js"><span class="hljs-keyword">var</span> foo = <span class="hljs-string">'bar'</span>;
         
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">baz</span><span class="hljs-params">(s)</span> </span>{
-           <span class="hljs-keyword">return</span> foo + <span class="hljs-string">':'</span> + s;
-        }
+        <h1 id="h1-heading">H1 Heading</h1>
+        <h2 id="h2-heading">H2 Heading</h2>
+        <h3 id="h3-heading">H3 Heading</h3>
+        <p>Here&#39;s some basic text.</p>
+        <p>And here&#39;s some <em>italics</em></p>
+        <p>Here&#39;s some <strong>bold</strong> text.</p>
+        <p>What about a <a href="https://github.com/dataoptimal">link</a>?</p>
+        <p>Here&#39;s a bulleted list:</p>
+        <ul>
+        <li><p>First item</p>
+        </li>
+        <li><p>Second item</p>
+        </li>
+        <li><p>Third item</p>
+        </li>
+        </ul>
+        <p>Here&#39;s a numbered list:</p>
+        <ol>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+        </ol>
+        <p>Python code block:</p>
+        <pre><code class="lang-python">    <span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+        
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_function</span><span class="hljs-params">(x, y)</span>:</span>
+              z = np.sum(x,y)
+              <span class="hljs-keyword">return</span> z
         </code></pre>
-        <p>Or inline code like <code>var foo = &#39;bar&#39;;</code>.</p>
-        <p>Or an image of bears</p>
-        <p><img src="http://placebear.com/200/200" alt="bears"></p>
-        <p>The end ...</p>
+        <p>R code block:</p>
+        <pre><code class="lang-r"><span class="hljs-function"><span class="hljs-title">library</span><span class="hljs-params">(tidyverse)</span></span>
+        df &lt;- read_csv(<span class="hljs-string">"some_file.csv"</span>)
+        <span class="hljs-function"><span class="hljs-title">head</span><span class="hljs-params">(df)</span></span>
+        </code></pre>
+        <p>Here&#39;s some inline code <code>x+y</code>.</p>
+        <p>Here&#39;s an image:
+        <img src="{{ site.url }}{{ site.baseurl }}/images/perceptron/linsep.jpg" alt="linearly separable data"></p>
+        <p>Here&#39;s another image using Kramdown:
+        <img src="{{ site.url }}{{ site.baseurl }}/images/perceptron/linsep.jpg" alt="alt"></p>
+        <p>Here&#39;s some math:</p>
+        <p>$$z=x+y$$</p>
+        <p>You can also put it inline $$z=x+y$$</p>
         
 
 

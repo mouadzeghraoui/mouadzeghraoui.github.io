@@ -685,7 +685,7 @@
 
     <div class="article-style">
       <p>
-        
+
         <h1 id="h1-heading">H1 Heading</h1>
         <h2 id="h2-heading">H2 Heading</h2>
         <h3 id="h3-heading">H3 Heading</h3>
@@ -765,222 +765,6 @@
 
 </figure>
 
-
-
-After cleaning the misrecorded values, the next step is to deal with the missing values itself. An analysis of percentage missing values per column is performed to determine how many columns have missing values and if they did contain how much percentage. Figure 1 shows the columns which have more than 30% missing values. After this analysis, a threshold of 30 was selected to drop the columns. Later an analysis on missing values row-wise had to be performed in order to remove observations that have missing features. Here a threshold of 50 missing features per observation was selected to drop rows. After this analysis, the resulting shapes were:
-* General population - (737288x356)
-* Customers data - (13426x356) (neglecting the additional customer specific features)
-
-#### Feature Engineering
-There were certain categorical features which were encoded with numeric values (in fact many, but only a few were addressed for simplicity). These features were coded with binary encoding. Also, some features were containing too much information, for example, information about financial status and age in one single column. Such kind of features was identified and was either recoded to contain broader information or divided into two columns to contain both features separately. Any feature that contained more than 20 categories was either dropped or reconstructed into something useful with the help of the Attribute information file.
-
-Since many of the features contained categorical values dumped into a single column, this step has helped to simplify the data for the later steps. This step resulted in having 353 features.
-
-#### Imputing Missing Values
-
-Even after dropping columns and rows based on a certain threshold, we are left with data which still has missing values. This problem is addressed with the help of simple imputer, which fills in the missing data with some values which we can control. A general approach for numerical features would be to impute the missing values with the median or mean. But a more common approach for categorical features is to impute with most common values. Since data corresponds to population, so it is more sensitive to impute the missing values with the most common values.
-
-Now, the data is clean and ready for modelling, one final step is to scale the data, i.e. to bring all the features to the same range. This is done using a standard scaler.
-
-
-## Customer Segmentation using Unsupervised Learning
-
-For cluster segmentation there are two steps to be performed.
-* Dimensionality Reduction
-* Clustering
-
-#### Dimensionality Reduction
-
-Although we have 353 features, not all of them will have variation, i.e. some features might be the same for all the people. We can go through all the features here to see how many unique values are there per feature to select the features which have the required variation. But a more systematic approach would be to perform a certain analysis before dropping any column. Hence, Principal Component Analysis (PCA) has been performed to analyse the explained variance of the PCA components. PCA applies a linear transformation on the data to form a new coordinate system such that the components in the new coordinate system represent the variation in the data.
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-pca-explained-variance-plot">
-
-
-  <a data-fancybox="" href="/img/customer-segmentation-acquisition/pca.png" data-caption="PCA Explained Variance plot">
-
-
-  <img src="/img/customer-segmentation-acquisition/pca.png" alt=""  >
-</a>
-
-
-  
-  
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    PCA Explained Variance plot
-  </figcaption>
-
-
-</figure>
-
-
-This analysis will help us determine how many features have enough variance to explain the variation in the data. An explained variance plot is used to select the number of components, i.e. the number of dimensions in the reduced coordinate space. As seen from the above plot, almost 90% of the variance can be explained with the help of approximately 150 components. Now, after the PCA transformation, we are left with 150 PCA components, each made up of a linear combination between the main features.
-
-#### Clustering
-
-After the dimensionality reduction, the next step is to divide the general population and customer population into different segments. K-Means clustering algorithm has been chosen for this task. Since it is simple and is apt for this task since it measures the distance between two observations to assign a cluster. This algorithm will help us in separating the general population with the help of the reduced features into a specified number of clusters and use this cluster information to understand the similarities in the general population and customer data. The number of clusters is selected to be ‘8’ with the help of an elbow plot.
-
-#### Cluster Analysis
-
- 
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-cluster-proportions">
-
-
-  <a data-fancybox="" href="/img/customer-segmentation-acquisition/cluster_percentages.png" data-caption="Cluster proportions">
-
-
-  <img src="/img/customer-segmentation-acquisition/cluster_percentages.png" alt=""  >
-</a>
-
-
-  
-  
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Cluster proportions
-  </figcaption>
-
-
-</figure>
-
-
-The general population and the customer population have been clustered into segments. Figure 3 represents the proportions of the population coming into each cluster. The cluster distribution of the general population is uniform, meaning that the general population has been uniformly clustered into 8 segments. But the customer population seems to be coming from the clusters ‘0’, ‘3’, ‘4’ and ‘7’. We can further confirm this by taking the ratio of proportions of customers segments and general population segments, as shown in Figure 4.
-
- 
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-cluster-proportions">
-
-
-  <a data-fancybox="" href="/img/customer-segmentation-acquisition/cluster_prop_ratio.png" data-caption="Cluster proportions">
-
-
-  <img src="/img/customer-segmentation-acquisition/cluster_prop_ratio.png" alt=""  >
-</a>
-
-
-  
-  
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Cluster proportions
-  </figcaption>
-
-
-</figure>
-
-
-As seen in Figure 4, if the ratio of proportions is greater than one, that means this cluster has a greater number of customers in the existing population and has the potential to have more future customers. If the ratio is less than one, that means these clusters have the least possibility to have future customers.
-
-
-A more detailed cluster analysis, which explains each cluster and corresponding components is also performed. It is documented in the [jupyter notebook](https://github.com/pranaymodukuru/Bertelsmann-Arvato-customer-segmentation/blob/master/Arvato%20Project%20Workbook.ipynb) used for this project. I am not explaining it here as this blog post is already too long.
-
-
-## Customer Acquisition using Supervised Learning
-
-After analysing the general population and customers data understanding which segments to concentrate on. We can further extend this analysis to make use of ML algorithms to take this decision too. Since we already have the customers data and general population data, we can combine them to form training data and train the ML models to make predictions about whether to approach a customer or not.
-
-In this case, supervised learning is done with the given train and test data. AUROC score has been selected as the evaluation metric since the problem is a highly imbalanced classification. The baseline performance was set with a Logistic Regression model, which was further improved with the help of Tree-based ensemble models. The AdaboostClassifier and XGBoostClassifier were the final selected models, whose predictions were submitted to Kaggle to attain a position in top 30 percentile (on the date of submission) with only two submissions.
-
- 
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<figure id="figure-kaggle-leaderboard">
-
-
-  <a data-fancybox="" href="/img/customer-segmentation-acquisition/kaggle_position.png" data-caption="Kaggle Leaderboard">
-
-
-  <img src="/img/customer-segmentation-acquisition/kaggle_position.png" alt=""  >
-</a>
-
-
-  
-  
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Kaggle Leaderboard
-  </figcaption>
-
-
-</figure>
-
-
-## Conclusion
-
-The general population and customer population have been compared and segmented using an Unsupervised learning algorithm. We were able to determine which clusters have more customers and which are potential clusters to have probable customers. We have also used supervised learning algorithms to predict a possible future customer based on demographic data.
-
-The resulting analysis has produced good results to put me in the top 30 percentile in the competition Leader board. The top score in the Leaderboard is 0.81063, which is not far away from the score that I achieved (0.80027). There is scope for improvement in the data preparation steps.
-
-A more comprehensive explanation of each step and the reasons behind choices of algorithms and metrics has been given in the [project report](https://github.com/pranaymodukuru/Bertelsmann-Arvato-customer-segmentation/blob/master/Report.pdf) and all the steps are documented in this [notebook](https://github.com/pranaymodukuru/Bertelsmann-Arvato-customer-segmentation/blob/master/Arvato%20Project%20Workbook.ipynb).
-
-Finally, I would like to thank Arvato Financial Solutions and Udacity for providing this wonderful opportunity to work with real-world data. This helped me gain valuable experience and helped me use and improve my skills.
-
-
-## References
-1. https://www.business2community.com/customer-experience/4-types-of-customer-segmentation-all-marketers-should-know-02120397
-2. https://blog.alexa.com/types-of-market-segmentation/
-3. https://clevertap.com/blog/customer-segmentation-examples-for-better-mobile-marketing/
-4. https://www.datanovia.com/en/lessons/determining-the-optimal-number-of-clusters-3-must-know-methods/
-5. https://towardsdatascience.com/what-metrics-should-we-use-on-imbalanced-data-set-precision-recall-roc-e2e79252aeba 
-
     </div>
 
     
@@ -991,9 +775,8 @@ Finally, I would like to thank Arvato Financial Solutions and Udacity for provid
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/machine-learning/">Machine Learning</a>
+  <a class="badge badge-light" href="/tags/Classification/">Classification</a>
   
-  <a class="badge badge-light" href="/tags/data-science/">Data Science</a>
   
 </div>
 
@@ -1027,11 +810,7 @@ Finally, I would like to thank Arvato Financial Solutions and Udacity for provid
       
       
       
-      <li>
-        <a href="mailto:?subject=Customer%20Segmentation%20and%20Acquisition%20using%20Machine%20Learning&amp;body=https://mouadzeghraoui.github.io/post/customer-segmentation/" target="_blank" rel="noopener" class="share-btn-email">
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
+      
     
       
       
@@ -1053,11 +832,7 @@ Finally, I would like to thank Arvato Financial Solutions and Udacity for provid
       
       
       
-      <li>
-        <a href="https://web.whatsapp.com/send?text=Customer%20Segmentation%20and%20Acquisition%20using%20Machine%20Learning%20https://mouadzeghraoui.github.io/post/customer-segmentation/" target="_blank" rel="noopener" class="share-btn-whatsapp">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </li>
+
     
       
       
@@ -1066,11 +841,7 @@ Finally, I would like to thank Arvato Financial Solutions and Udacity for provid
       
       
       
-      <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://mouadzeghraoui.github.io/post/customer-segmentation/&amp;title=Customer%20Segmentation%20and%20Acquisition%20using%20Machine%20Learning" target="_blank" rel="noopener" class="share-btn-weibo">
-          <i class="fab fa-weibo"></i>
-        </a>
-      </li>
+
     
   </ul>
 </div>
@@ -1155,22 +926,7 @@ Finally, I would like to thank Arvato Financial Solutions and Udacity for provid
 
   
   
-  <div class="article-widget content-widget-hr">
-    <h3>Related</h3>
-    <ul>
-      
-      <li><a href="/project/customer-segmentation-acquisition/">Customer Segmentation and Acquisition</a></li>
-      
-      <li><a href="/project/concrete-compressive-strength/">Concrete Compressive Strength Prediction</a></li>
-      
-      <li><a href="/post/concrete-compressive-strength/">Concrete Compressive Strength Prediction using Machine Learning</a></li>
-      
-      <li><a href="/project/denoising-auto-encoder/">Denoising Autoencoder</a></li>
-      
-      <li><a href="/project/hand-gesture-recognition/">Hand Gesture Recognition</a></li>
-      
-    </ul>
-  </div>
+
   
 
 

@@ -6,282 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="generator" content="Source Themes Academic 4.8.0">
-
-  
-
-  
-  
-  
-  
-  
-    
-    
-    
-  
-  
-
-  <meta name="author" content="Naga Sai Pranay Modukuru">
-
-  
-  
-  
-    
-  
-  <meta name="description" content="Using Unsupervised and Supervised Learning Techniques">
-
-  
-  <link rel="alternate" hreflang="en-us" href="https://mouadzeghraoui.github.io/project/fraud-detection/">
-
-  
-
-
-  
-  
-  
+  <meta name="author" content="Mouad Zeghraoui">
+  <meta name="description" content="Create a tool to detect potential cases of property tax fraud">
+  <link rel="alternate" hreflang="en-us" href="https://mouadzeghraoui.github.io/post/fraud-detection/">
   <meta name="theme-color" content="#2962ff">
-  
-
-  
-  
-  
   <script src="/js/mathjax-config.js"></script>
-  
-
-  
-  
-  
-  
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
-
-    
-    
-    
-      
-    
-    
-      
-      
-        
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
-        
-      
-    
-
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
-    
-
-    
-
-    
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
-      
-    
-      
-
-      
-      
-
-      
-    
-
-  
-
-  
-  
-  
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
-  
-
-  
-  
-  
-  
   <link rel="stylesheet" href="/css/academic.css">
-
-  
-
-
-
-
-  
-
-
-  
-  
-
-  
-
   <link rel="manifest" href="/index.webmanifest">
   <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
   <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
 
-  <link rel="canonical" href="https://mouadzeghraoui.github.io/project/fraud-detection/">
-
-  
-  
-  
-  
-  
-  
-  
-    
-  
-  
-  <meta property="twitter:card" content="summary_large_image">
-  
-  <meta property="twitter:site" content="@pranaymns">
-  <meta property="twitter:creator" content="@pranaymns">
-  
-  <meta property="og:site_name" content="Pranay Modukuru">
-  <meta property="og:url" content="https://mouadzeghraoui.github.io/project/customer-segmentation-acquisition/">
-  <meta property="og:title" content="Tax Fraud Detection | Pranay Modukuru">
-  <meta property="og:description" content="Using Unsupervised and Supervised Learning Techniques"><meta property="og:image" content="https://mouadzeghraoui.github.io/project/fraud-detection/featured.jpg">
-  <meta property="twitter:image" content="https://mouadzeghraoui.github.io/project/fraud-detection/featured.jpg"><meta property="og:locale" content="en-us">
-  
-    
-      <meta property="article:published_time" content="2020-04-13T12:50:14&#43;02:00">
-    
-    <meta property="article:modified_time" content="2020-04-13T12:50:14&#43;02:00">
-  
-
-  
 
 
-    
-
-
-
-
-
-
-
-
+<!-- 1st Post -->
+  <link rel="canonical" href="https://mouadzeghraoui.github.io/post/fraud-detection/">
+  <meta property="og:site_name" content="Mouad Zeghraoui">
+  <meta property="og:url" content="https://mouadzeghraoui.github.io/post/fraud-detection/">
+  <meta property="og:title" content="Tax Fraud Detection using Machine Learning | Mouad Zeghraoui">
+  <meta property="og:description" content="Using Classification algorithms to detect potential cases of property tax fraud"><meta property="og:image" content="https://mouadzeghraoui.github.io/post/fraud-detection/featured.jpg">
+      <meta property="article:published_time" content="2020-04-16T16:45:57&#43;02:00"> 
+    <meta property="article:modified_time" content="2020-04-16T16:45:57&#43;02:00">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://mouadzeghraoui.github.io/project/customer-segmentation-acquisition/"
+    "@id": "https://mouadzeghraoui.github.io/post/fraud-detection/"
   },
-  "headline": "Tax Fraud Detection",
+  "headline": "Tax Fraud Detection using Machine Learning",
   
   "image": [
-    "https://mouadzeghraoui.github.io/project/customer-segmentation-acquisition/featured.jpg"
+    "https://mouadzeghraoui.github.io/post/fraud-detection/featured.jpg"
   ],
   
-  "datePublished": "2020-04-13T12:50:14+02:00",
-  "dateModified": "2020-04-13T12:50:14+02:00",
+  "datePublished": "2020-04-16T16:45:57+02:00",
+  "dateModified": "2020-04-16T16:45:57+02:00",
   
   "author": {
     "@type": "Person",
-    "name": "Mouad zeghraoui"
+    "name": "Mouad Zeghraoui"
   },
   
   "publisher": {
@@ -292,7 +66,7 @@
       "url": "https://mouadzeghraoui.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Using Unsupervised and Supervised Learning Techniques"
+  "description": "Using Classification algorithms to detect potential cases of property tax fraud"
 }
 </script>
 
@@ -310,7 +84,7 @@
 
 
 
-  <title>Tax Fraud Detection | Mouad Zeghraoui</title>
+  <title>Tax Fraud Detection using Machine Learning | Mouad Zeghraoui</title>
 
 </head>
 
@@ -564,38 +338,12 @@
 </nav>
 
 
-  <article class="article article-project">
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
+  <article class="article">
 <div class="article-container pt-3">
   <h1>Tax Fraud Detection</h1>
 
+  
+  <p class="page-subtitle">Project Overview</p>
   
 
   
@@ -605,6 +353,16 @@
 
   
   
+  
+  
+  <div>
+    
+
+  
+  <span><a href="/authors/mouad/">Mouad Zeghraoui</a></span>
+  </div>
+  
+  
 
   
   <span class="article-date">
@@ -612,19 +370,24 @@
     
       
     
-    Apr 13, 2020
+    Apr 16, 2020
   </span>
   
 
   
 
   
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
 
   
   
   
   <span class="middot-divider"></span>
-  <a href="/project/customer-segmentation-acquisition/#disqus_thread"></a>
+  <a href="/post/fraud-detection/#disqus_thread"></a>
   
 
   
@@ -648,79 +411,7 @@
 
 <div class="btn-links mb-3">
   
-  <a class="btn btn-outline-primary my-1" href="https://github.com/mouadzeghraoui/Bertelsmann-Arvato-customer-segmentation" target="_blank" rel="noopener">Go to Project Site</a>
-  
-  
-
-
-
-
-
-
-
-
-  
-    
-  
-
-
-
-<a class="btn btn-outline-primary my-1 mr-1" href="https://github.com/mouadzeghraoui/Bertelsmann-Arvato-customer-segmentation/blob/master/Report.pdf" target="_blank" rel="noopener">
-  PDF
-</a>
-
-
-
-
-  
-  
-    
-  
-<a class="btn btn-outline-primary my-1 mr-1" href="https://github.com/mouadzeghraoui/Bertelsmann-Arvato-customer-segmentation" target="_blank" rel="noopener">
-  Code
-</a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-    
-  
-  
-  
-  
-  
-    
-  
-
-
-  
-  
-  
-    
-  
-  
-  
-  
-  
-    
-  
-  <a class="btn btn-outline-primary my-1 mr-1" href="https://www.linkedin.com/in/mouadzeghraoui/" target="_blank" rel="noopener">
-    <i class="fab fa-linkedin mr-1"></i>
-    Connect
-  </a>
-
+  <a class="btn btn-outline-primary my-1" href="https://github.com/mouadzeghraoui/Tax-Fraud-Detection" target="_blank" rel="noopener">Go to GitHub Project</a>
 
 </div>
 
@@ -730,7 +421,7 @@
 
 <div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 477px;">
   <div style="position: relative">
-    <img src="/project/fraud-detection/" alt="" class="featured-image">
+    <img src="/post/fraud-detection/featured_hu6ec5dc5c784ebb6756ed53d90027e90b_2709533_720x0_resize_q90_lanczos.jpg" alt="" class="featured-image">
     <span class="article-header-caption">Photo by <a href="https://unsplash.com/@stefano75?utm_source=medium&amp;utm_medium=referral">Stefano Alemani</a> on <a href="https://unsplash.com/?utm_source=medium&amp;utm_medium=referral">Unsplash</a></span>
   </div>
 </div>
@@ -740,17 +431,86 @@
   <div class="article-container">
 
     <div class="article-style">
-      <h3 id="project-overview">Project Overview</h3>
-<p>In this project, the demographic data of German population and the customer data have been analysed in order to perform Customer Segmentation and Customer Acquisition. Arvato Financial Solutions is a services company that provides financial services, Information Technology (IT) services and Supply Chain Management (SCM) solutions for business customers on a global scale.</p>
-<p>This project is to help a Mail-Order company to acquire new customers to sell its organic products. The goal of this project is to understand the customer demographics as compared to general population in order to decide whether to approach a person for future products.</p>
-<h4 id="please-click-on-links-below-for-more-details">Please click on links below for more details</h4>
-<ul>
-<li>
-<a href="https://github.com/mouadzeghraoui/Bertelsmann-Arvato-customer-segmentation" target="_blank" rel="noopener">Project</a></li>
-<li>
-<a href="https://github.com/mouadzeghraoui/Bertelsmann-Arvato-customer-segmentation/blob/master/Arvato%20Project%20Workbook.ipynb" target="_blank" rel="noopener">Code</a></li>
-</ul>
-<!-- * Medium [Blog](https://towardsdatascience.com/concrete-compressive-strength-prediction-using-machine-learning-4a531b3c43f3) - Also leave some claps to show appreciation! -->
+      <p>
+
+        <h1 id="h1-heading">H1 Heading</h1>
+        <h2 id="h2-heading">H2 Heading</h2>
+        <h3 id="h3-heading">H3 Heading</h3>
+        <p>Here&#39;s some basic text.</p>
+        <p>And here&#39;s some <em>italics</em></p>
+        <p>Here&#39;s some <strong>bold</strong> text.</p>
+        <p>What about a <a href="https://github.com/dataoptimal">link</a>?</p>
+        <p>Here&#39;s a bulleted list:</p>
+        <ul>
+        <li><p>First item</p>
+        </li>
+        <li><p>Second item</p>
+        </li>
+        <li><p>Third item</p>
+        </li>
+        </ul>
+        <p>Here&#39;s a numbered list:</p>
+        <ol>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+        </ol>
+        <p>Python code block:</p>
+        <pre><code class="lang-python">    <span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+        
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_function</span><span class="hljs-params">(x, y)</span>:</span>
+              z = np.sum(x,y)
+              <span class="hljs-keyword">return</span> z
+        </code></pre>
+        <p>R code block:</p>
+        <pre><code class="lang-r"><span class="hljs-function"><span class="hljs-title">library</span><span class="hljs-params">(tidyverse)</span></span>
+        df &lt;- read_csv(<span class="hljs-string">"some_file.csv"</span>)
+        <span class="hljs-function"><span class="hljs-title">head</span><span class="hljs-params">(df)</span></span>
+        </code></pre>
+        <p>Here&#39;s some inline code <code>x+y</code>.</p>
+        <p>Here&#39;s an image:
+        <img src="{{ site.url }}{{ site.baseurl }}/images/perceptron/linsep.jpg" alt="linearly separable data"></p>
+        <p>Here&#39;s another image using Kramdown:
+        <img src="{{ site.url }}{{ site.baseurl }}/images/perceptron/linsep.jpg" alt="alt"></p>
+        <p>Here&#39;s some math:</p>
+        <p>$$z=x+y$$</p>
+        <p>You can also put it inline $$z=x+y$$</p>
+        
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<figure id="figure-columns-with-more-than-30-missing-values">
+
+
+  <a data-fancybox="" href="/img/fraud-detection-acquisition/miss_colwise.png" data-caption="Columns with more than 30% missing values">
+
+
+  <img src="/img/fraud-detection-acquisition/miss_colwise.png" alt=""  >
+</a>
+
+
+  
+  
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Columns with more than 30% missing values
+  </figcaption>
+
+
+</figure>
 
     </div>
 
@@ -762,9 +522,8 @@
 
 <div class="article-tags">
   
-  <a class="badge badge-light" href="/tags/machine-learning/">Machine Learning</a>
+  <a class="badge badge-light">Classification</a>
   
-  <a class="badge badge-light" href="/tags/data-science/">Data Science</a>
   
 </div>
 
@@ -780,7 +539,7 @@
       
       
       
-
+      
     
       
       
@@ -789,7 +548,17 @@
       
       
       
-
+      
+    
+      
+      
+      
+        
+      
+      
+      
+      
+    
       
       
       
@@ -798,7 +567,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://mouadzeghraoui.github.io/project/fraud-detection/&amp;title=Customer%20Segmentation%20and%20Acquisition" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://mouadzeghraoui.github.io/post/fraud-detection/&amp;title=Customer%20Segmentation%20and%20Acquisition%20using%20Machine%20Learning" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -809,6 +578,7 @@
         
       
       
+      
 
     
       
@@ -818,11 +588,7 @@
       
       
       
-      <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://mouadzeghraoui.github.io/project/customer-segmentation-acquisition/&amp;title=Customer%20Segmentation%20and%20Acquisition" target="_blank" rel="noopener" class="share-btn-weibo">
-          <i class="fab fa-weibo"></i>
-        </a>
-      </li>
+
     
   </ul>
 </div>
@@ -839,128 +605,26 @@
 
 
   
-  
-
-
-
-
-
-  
-  
-  
     
+    
+
+
+
+
+
+  
+  
   
   
   
   <div class="media author-card content-widget-hr">
     
-      
-      <img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hu64397e16f9b5d3159cea37f708b95c6d_2047012_270x270_fill_q90_lanczos_center.jpg" alt="Mouad Zeghraoui">
-    
 
     <div class="media-body">
-      <h5 class="card-title"><a href="https://mouadzeghraoui.github.io/">Naga Sai Pranay Modukuru</a></h5>
-      <h6 class="card-subtitle">Master&rsquo;s Student</h6>
-      <p class="card-text">My research interests include Deep learning, Machine Learning for Industry 4.0.</p>
+      <h5 class="card-title"><a href="/authors/mouad/"></a></h5>
+      
+      
       <ul class="network-icon" aria-hidden="true">
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-    <li>
-      <a href="mailto:pranaymns@gmail.com" >
-        <i class="fas fa-envelope"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://www.linkedin.com/in/mouadzeghraoui/" target="_blank" rel="noopener">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://github.com/mouadzeghraoui" target="_blank" rel="noopener">
-        <i class="fab fa-github"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://medium.com/@pranaymns" target="_blank" rel="noopener">
-        <i class="fab fa-medium"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://twitter.com/pranaymns" target="_blank" rel="noopener">
-        <i class="fab fa-twitter"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="/files/cv.pdf" >
-        <i class="ai ai-cv"></i>
-      </a>
-    </li>
   
 </ul>
 
@@ -968,6 +632,7 @@
   </div>
 
 
+  
 
 
 
@@ -1008,62 +673,11 @@
 
   
   
-  
-  
-
-
-
-    <div class="project-related-pages content-widget-hr">
-      
-      
-
-      
-      
-      
-        <h2>Posts</h2>
-        
-          
-            
-
-
-
-
-
-
-
-
-
-  
-  
-
 
   
 
 
-<div class="view-list-item">
-  <i class="far fa-newspaper pub-icon" aria-hidden="true"></i>
-  <a href="https://towardsdatascience.com/customer-segmentation-and-acquisition-using-machine-learning-a219ce0ec139?source=friends_link&amp;sk=c7d662b4806a9e984f591d961e8d01e4" target="_blank" rel="noopener">Tax Fraud Detection using Machine Learning</a>
 
-  
-
-  
-
-  
-
-</div>
-
-          
-        
-      
-
-      
-      
-      
-
-      
-      
-      
-    </div>
   </div>
 </article>
 
@@ -1156,7 +770,7 @@
 
     
     
-    <script id="dsq-count-scr" src="https://Pranay.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="https://Mouad.disqus.com/count.js" async></script>
     
 
     
@@ -1188,12 +802,7 @@
     <footer class="site-footer">
   
 
-  <p class="powered-by">
-    © Pranay Modukuru 2020 &middot; 
-
-    Powered by the
-    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+  
 
     
     <span class="float-right" aria-hidden="true">

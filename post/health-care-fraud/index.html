@@ -285,7 +285,16 @@
 from pandas_profiling import ProfileReport
 ProfileReport(fraud) #fraud is the name of my DataFrame
 </code></pre>
-<p><img src="/post/health-care-fraud/DR.gif" referrerpolicy="no-referrer" alt="DR"></p>
+
+<figure id="figure-columns-with-more-than-30-missing-values">
+  <a data-fancybox="" href="/post/health-care-fraud/DR.gif" data-caption="Data Report">
+  <img src="/post/health-care-fraud/DR.gif" alt="DR"  >
+</a>
+  <figcaption data-pre="Figure " data-post=":" class="numbered">
+    Data Report
+  </figcaption>
+</figure>
+
 <p>&nbsp;</p>
 <p>From the Data Report we can see that we have some features with 100% of Missing Data, and some features with high cardinality.</p>
 <ul>
@@ -312,64 +321,21 @@ ProfileReport(fraud) #fraud is the name of my DataFrame
 <p>I found that Matplotlib and Seaborn lacked some of the &quot;professional&quot; level aesthetic that I was looking for.</p>
 <p>We can observe in figure 1 that the <strong>Inpatient</strong> suffer from a lot of <strong>Chronic Diseases</strong> than the <strong>Outpatient</strong>. In the chart we can clearly observe that the median of chronic disease count is 6 for the inpatient and just 4 for the outpatient</p>
 <p>&nbsp;</p>
-<p><img src="/post/health-care-fraud/fig1.png" referrerpolicy="no-referrer" alt="Patient"></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-        <h1 id="h1-heading">H1 Heading</h1>
-        <h2 id="h2-heading">H2 Heading</h2>
-        <h3 id="h3-heading">H3 Heading</h3>
-        <p>Here&#39;s some basic text.</p>
-        <p>And here&#39;s some <em>italics</em></p>
-        <p>Here&#39;s some <strong>bold</strong> text.</p>
-        <p>What about a <a href="https://github.com/dataoptimal">link</a>?</p>
-        <p>Here&#39;s a bulleted list:</p>
-        <ul>
-        <li><p>First item</p>
-        </li>
-        <li><p>Second item</p>
-        </li>
-        <li><p>Third item</p>
-        </li>
-        </ul>
-        <p>Here&#39;s a numbered list:</p>
-        <ol>
-        <li>First</li>
-        <li>Second</li>
-        <li>Third</li>
-        </ol>
-        <p>Python code block:</p>
-        <pre><code class="lang-python">    <span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
-        
-            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_function</span><span class="hljs-params">(x, y)</span>:</span>
-              z = np.sum(x,y)
-              <span class="hljs-keyword">return</span> z
-        </code></pre>
-        <p>R code block:</p>
-        <pre><code class="lang-r"><span class="hljs-function"><span class="hljs-title">library</span><span class="hljs-params">(tidyverse)</span></span>
-        df &lt;- read_csv(<span class="hljs-string">"some_file.csv"</span>)
-        <span class="hljs-function"><span class="hljs-title">head</span><span class="hljs-params">(df)</span></span>
-        </code></pre>
-        <p>Here&#39;s some inline code <code>x+y</code>.</p>
-        <p>Here&#39;s an image:
-        <img src="{{ site.url }}{{ site.baseurl }}/images/perceptron/linsep.jpg" alt="linearly separable data"></p>
-        <p>Here&#39;s another image using Kramdown:
-        <img src="{{ site.url }}{{ site.baseurl }}/images/perceptron/linsep.jpg" alt="alt"></p>
-        <p>Here&#39;s some math:</p>
-        <p>$$z=x+y$$</p>
-        <p>You can also put it inline $$z=x+y$$</p>
 <figure id="figure-columns-with-more-than-30-missing-values">
-  <a data-fancybox="" href="/img/fraud-detection-acquisition/miss_colwise.png" data-caption="Columns with more than 30% missing values">
-  <img src="/img/fraud-detection-acquisition/miss_colwise.png" alt=""  >
+  <a data-fancybox="" href="/post/health-care-fraud/fig1.png" data-caption="Figure 1">
+  <img src="/post/health-care-fraud/fig1.png" alt="DR"  >
 </a>
   <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Columns with more than 30% missing values
+    Figure 1
   </figcaption>
 </figure>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
     </div>
 <div class="article-tags">  
   <a class="badge badge-light">Classification</a>

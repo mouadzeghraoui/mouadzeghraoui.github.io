@@ -213,7 +213,113 @@
 
     <div class="article-style">
       <p>
+        <h3>The Problem statement : </h3>
+<p>A couple of months ago, I read an article about the <a href='https://www.pacificprime.com/blog/healthcare-system-fraud-impacts.html'>impact of healthcare Fraud on the healthcare system</a>, and I realized that this is a crime that has a huge impact on the healthcare system and on us as an individual. I really invite you to read this article.</p>
+<p>And I was thinking how can we help insurance companies to detect this kind of fraud, and save Time and Money.</p>
+<p>And I realized that <strong>Data Science</strong> is key for Insurance company to Detect Potential HealthCare <strong>fraud</strong>.</p>
+<p><strong>What is a Health care fraud ?</strong></p>
+<p>Health care fraud is a crime that involves misrepresenting  information,  concealing information, or deceiving a person or entity in order to  receive benefits, or to make a financial profit. Both  individuals and  healthcare providers commit health care fraud, in a  number of different  ways.</p>
+<p> According to the National Health Care  Anti-Fraud Association (NHCAA), the financial lose due to healthcare  fraud is more than $100 billion every year, and have a lot of  consequences such as:</p>
+<ul>
+<li>Reduce benefits &amp; coverage</li>
+<li>Increased cost of providing insurance benefits</li>
 
+</ul>
+<blockquote><p><strong>Healthcare Fraud =</strong> submission of fraudulent claims by medical facilities to steal money from insurance companies.</p>
+</blockquote>
+<p>Fraud claims come in different forms such as:</p>
+<ul>
+<li>Using insurance that belongs to someone else</li>
+<li>Failing to remove someone no longer eligible from a policy</li>
+<li>Providing false information in order to receive medical coverage</li>
+<li>Duplicating claims for the same or different patients</li>
+<li>Providing a service that is not covered under a patient’s insurance policy, then billing for a service that is covered</li>
+
+</ul>
+<p>Source :</p>
+<ul>
+<li><a href='https://www.nhcaa.org/resources/health-care-anti-fraud-resources/the-challenge-of-health-care-fraud/' target='_blank' class='url'>https://www.nhcaa.org/resources/health-care-anti-fraud-resources/the-challenge-of-health-care-fraud/</a></li>
+<li><a href='https://legaldictionary.net/health-care-fraud/' target='_blank' class='url'>https://legaldictionary.net/health-care-fraud/</a></li>
+
+</ul>
+<p><strong>Why would detecting these kind of fraud be helpful?</strong></p>
+<p>By detecting potential fraud using our Historical Data, we can really save a huge time and effort to the insurance companies, and also to <strong>understand the behavior of potential fraud providers</strong>, and <strong>discover</strong> the <strong>important parameters</strong> that can help us to to that, and finnally to <strong>build a predictive model</strong> that can  <strong>flag the potential fraud providers</strong> based on the <strong>claims fields</strong></p>
+<h3>Project Pipeline </h3>
+<p>Before starting a project, It&#39;s better to define our pipeline. </p>
+<ol>
+<li>First of all, <strong>Data collection</strong> I used in this Project is a real Dataset,That I found on Kaggle.</li>
+<li><strong>Exploratory Data Analysis</strong> using <strong>Plotly</strong> and <strong>Pandas</strong> </li>
+<li><strong>Modeling</strong>, Since we have a classification problem and unbalanced DataSet we used, <strong>XXXX</strong></li>
+
+</ol>
+<ol start='4' >
+<li><strong>Hyperparameter Tuning</strong> </li>
+<li>Create a user-facing app with Streamlit.</li>
+
+</ol>
+<p>We’ll use these to drive the rest of the article. Let’s get into it.</p>
+<h3>Data Collection</h3>
+<p>The  <a href='https://www.kaggle.com/rohitrox/healthcare-provider-fraud-detection-analysis'>Dataset</a> that I used in this Project is a real Dataset,That I found on Kaggle.</p>
+<p>Like all Machine Learning projects, it begins and ends with the data. </p>
+<p>We have 4 Datasets:</p>
+<ul>
+<li><strong>Inpatient Data :</strong> This data provides insights about the claims filed for those patients  who are admitted in the hospitals. It also provides additional details  like their admission and discharge dates and admit d diagnosis code.</li>
+<li><strong>Outpatient Data:</strong> This data provides details about the claims filed for those patients who visit hospitals and not admitted in it.</li>
+<li> <strong>Beneficiary</strong> Details Data: This data contains beneficiary details like health conditions,regioregion they belong to etc.</li>
+<li>The last one <strong>Label</strong>, Contains the Label of Fraud : Yes or No</li>
+
+</ul>
+<p>So we can conclude that our <a href='https://www.kaggle.com/rohitrox/healthcare-provider-fraud-detection-analysis'>Dataset</a> includes information about:</p>
+<ul>
+<li>Beneficiary like <strong>Age, Race, Country, State, Gender</strong></li>
+<li>Inpatient/outpatient claims informations such as the <strong>amount, Medical codes, Physician ID</strong></li>
+<li>Label (<strong>Fraud</strong> or <strong>Not Fraud</strong>)</li>
+
+</ul>
+<p>Let&#39;s Explore our Data.</p>
+<h3>Exploratory Data Analysis</h3>
+<p>First thing to do is to know our Data, </p>
+<p>I merged my Training datasets by our unique IDs, for both providers  and patients, and I generate a <strong>Data Report</strong>, to check the <strong>Data Description</strong>, <strong>Data Distribution</strong>, <strong>Missing Values</strong>, <strong>correlations</strong> etc.</p>
+<p>I used a powerful library called <a href='https://pypi.org/project/pandas-profiling/'>Pandas-Profiling</a>, to easly generate profile report for pandas DataFrame</p>
+<pre><code class='language-python' lang='python'>!pip install pandas-profiling[notebook] #install pandas-profiling
+from pandas_profiling import ProfileReport
+ProfileReport(fraud) #fraud is the name of my DataFrame
+</code></pre>
+<p><img src="/Users/mouadzeghraoui/Desktop/DR.gif" referrerpolicy="no-referrer" alt="DR"></p>
+<p>&nbsp;</p>
+<p>From the Data Report we can see that we have some features with 100% of Missing Data, and some features with high cardinality.</p>
+<ul>
+<li>I removed all Features with 100% of Missing Data</li>
+<li>I let Features the high cardinality, for more investigation</li>
+
+</ul>
+<p>After that I ran some initial <strong>Data Analysis</strong>, to understand the  relationship between our features, and between our features and our target variable <strong>&quot;PotentialFraud&quot;</strong>.</p>
+<p>In this part, I tried to answer a set of questions such as:</p>
+<ul>
+<li>The <strong>Number</strong> of Beneficiary in the DataSet?</li>
+<li>The <strong>Number</strong> and <strong>Type</strong> of Doctors in the DataSet?</li>
+<li>Our Doctors serves different provider/Hospital?</li>
+<li>Our Benefeciary goes to different Hospital?</li>
+<li>Inpatient has worse health conditions than the Outpatient?</li>
+<li>Beneficiaries who visit the hospital more often have worse health conditions than the others?</li>
+<li>The relationship between the patient ages and the counts of medical claims?</li>
+<li>The relationship between Patient&#39;s age and their chronic conditions?</li>
+<li>Our Providers have Duplicated Claims?</li>
+
+</ul>
+<p>And many more, all these questions help us to understand our Data, and to understand the fraudsters&#39; behaviour.</p>
+<p>In my visualization I prefer <a href='https://plotly.com/'>Plotly (and Dash)</a> rather than Matplotlib and Seaborn, </p>
+<p>I found that Matplotlib and Seaborn lacked some of the &quot;professional&quot; level aesthetic that I was looking for.</p>
+<p>We can observe is <a href='#Patient'>figure 1</a> that the <strong>Inpatient</strong> suffer from a lot of <strong>Chronic Diseases</strong> than the <strong>Outpatient</strong>. In the chart we can clearly observe that the median of chronic disease count is 6 for the inpatient and just 4 for the outpatient</p>
+<p>&nbsp;</p>
+<p><img src="/Users/mouadzeghraoui/Desktop/fig1.png" referrerpolicy="no-referrer" alt="Patient"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
         <h1 id="h1-heading">H1 Heading</h1>
         <h2 id="h2-heading">H2 Heading</h2>
         <h3 id="h3-heading">H3 Heading</h3>

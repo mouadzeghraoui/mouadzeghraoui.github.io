@@ -213,7 +213,7 @@
 
     <div class="article-style">
       <p>
-        <h3>The Problem statement : </h3>
+        <h2>The Problem statement : </h2>
 <p>A couple of months ago, I read an article about the <a href='https://www.pacificprime.com/blog/healthcare-system-fraud-impacts.html'>impact of healthcare Fraud on the healthcare system</a>, and I realized that this is a crime that has a huge impact on the healthcare system and on us as an individual. I really invite you to read this article.</p>
 <p>And I was thinking how can we help insurance companies to detect this kind of fraud, and save Time and Money.</p>
 <p>And I realized that <strong>Data Science</strong> is key for Insurance company to Detect Potential HealthCare <strong>fraud</strong>.</p>
@@ -277,7 +277,7 @@
 
 </ul>
 <p>Let&#39;s Explore our Data.</p>
-<h3>Exploratory Data Analysis</h3>
+<h2>Exploratory Data Analysis</h2>
 <p>First thing to do is to know our Data, </p>
 <p>I merged my Training datasets by our unique IDs, for both providers  and patients, and I generate a <strong>Data Report</strong>, to check the <strong>Data Description</strong>, <strong>Data Distribution</strong>, <strong>Missing Values</strong>, <strong>correlations</strong> etc.</p>
 <p>I used a powerful library called <a href='https://pypi.org/project/pandas-profiling/'>Pandas-Profiling</a>, to easly generate profile report for pandas DataFrame</p>
@@ -285,7 +285,7 @@
 from pandas_profiling import ProfileReport
 ProfileReport(fraud) #fraud is the name of my DataFrame
 </code></pre>
-<p><img src="/Users/mouadzeghraoui/Desktop/DR.gif" referrerpolicy="no-referrer" alt="DR"></p>
+<p><img src="/post/health-care-fraud/DR.gif" referrerpolicy="no-referrer" alt="DR"></p>
 <p>&nbsp;</p>
 <p>From the Data Report we can see that we have some features with 100% of Missing Data, and some features with high cardinality.</p>
 <ul>
@@ -310,9 +310,9 @@ ProfileReport(fraud) #fraud is the name of my DataFrame
 <p>And many more, all these questions help us to understand our Data, and to understand the fraudsters&#39; behaviour.</p>
 <p>In my visualization I prefer <a href='https://plotly.com/'>Plotly (and Dash)</a> rather than Matplotlib and Seaborn, </p>
 <p>I found that Matplotlib and Seaborn lacked some of the &quot;professional&quot; level aesthetic that I was looking for.</p>
-<p>We can observe is <a href='#Patient'>figure 1</a> that the <strong>Inpatient</strong> suffer from a lot of <strong>Chronic Diseases</strong> than the <strong>Outpatient</strong>. In the chart we can clearly observe that the median of chronic disease count is 6 for the inpatient and just 4 for the outpatient</p>
+<p>We can observe in figure 1 that the <strong>Inpatient</strong> suffer from a lot of <strong>Chronic Diseases</strong> than the <strong>Outpatient</strong>. In the chart we can clearly observe that the median of chronic disease count is 6 for the inpatient and just 4 for the outpatient</p>
 <p>&nbsp;</p>
-<p><img src="/Users/mouadzeghraoui/Desktop/fig1.png" referrerpolicy="no-referrer" alt="Patient"></p>
+<p><img src="/post/health-care-fraud/fig1.png" referrerpolicy="no-referrer" alt="Patient"></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>

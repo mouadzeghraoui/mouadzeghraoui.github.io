@@ -213,7 +213,7 @@
 
     <div class="article-style">
       <p>
-        <h2>The Problem statement : </h2>
+        <h3>The Problem statement : </h3>
 <p>A couple of months ago, I read an article about the <a href='https://www.pacificprime.com/blog/healthcare-system-fraud-impacts.html'>impact of healthcare Fraud on the healthcare system</a>, and I realized that this is a crime that has a huge impact on the healthcare system and on us as an individual. I really invite you to read this article.</p>
 <p>And I was thinking how can we help insurance companies to detect this kind of fraud, and save Time and Money.</p>
 <p>And I realized that <strong>Data Science</strong> is key for Insurance company to Detect Potential HealthCare <strong>fraud</strong>.</p>
@@ -246,13 +246,10 @@
 <p>By detecting potential fraud using our Historical Data, we can really save a huge time and effort to the insurance companies, and also to <strong>understand the behavior of potential fraud providers</strong>, and <strong>discover</strong> the <strong>important parameters</strong> that can help us to to that, and finnally to <strong>build a predictive model</strong> that can  <strong>flag the potential fraud providers</strong> based on the <strong>claims fields</strong></p>
 <h3>Project Pipeline </h3>
 <p>Before starting a project, It&#39;s better to define our pipeline. </p>
-<ol>
+<ol start='' >
 <li>First of all, <strong>Data collection</strong> I used in this Project is a real Dataset,That I found on Kaggle.</li>
 <li><strong>Exploratory Data Analysis</strong> using <strong>Plotly</strong> and <strong>Pandas</strong> </li>
 <li><strong>Modeling</strong>, Since we have a classification problem and unbalanced DataSet we used, <strong>XXXX</strong></li>
-
-</ol>
-<ol start='4' >
 <li><strong>Hyperparameter Tuning</strong> </li>
 <li>Create a user-facing app with Streamlit.</li>
 
@@ -265,7 +262,7 @@
 <ul>
 <li><strong>Inpatient Data :</strong> This data provides insights about the claims filed for those patients  who are admitted in the hospitals. It also provides additional details  like their admission and discharge dates and admit d diagnosis code.</li>
 <li><strong>Outpatient Data:</strong> This data provides details about the claims filed for those patients who visit hospitals and not admitted in it.</li>
-<li> <strong>Beneficiary</strong> Details Data: This data contains beneficiary details like health conditions,regioregion they belong to etc.</li>
+<li><strong>Beneficiary</strong> Details Data: This data contains beneficiary details like health conditions,regioregion they belong to etc.</li>
 <li>The last one <strong>Label</strong>, Contains the Label of Fraud : Yes or No</li>
 
 </ul>
@@ -277,24 +274,26 @@
 
 </ul>
 <p>Let&#39;s Explore our Data.</p>
-<h2>Exploratory Data Analysis</h2>
-<p>First thing to do is to know our Data, </p>
-<p>I merged my Training datasets by our unique IDs, for both providers  and patients, and I generate a <strong>Data Report</strong>, to check the <strong>Data Description</strong>, <strong>Data Distribution</strong>, <strong>Missing Values</strong>, <strong>correlations</strong> etc.</p>
+<h3>Exploratory Data Analysis</h3>
+<p><strong>&#39;The most difficult thing in life is to know yourself&#39;</strong></p>
+<p>I wouldn&#39;t say that knowing your data is the most difficult thing in  <strong>Data Science</strong>, but it is time-consuming. Therefore, it&#39;s easy to overlook this initial step and jump too soon into the water. PS : It&#39;s really not recommended.</p>
+<p>In this section I will :</p>
+<ul>
+<li><strong>Understand the problem</strong>. I&#39;ll look at each variable and do an analysis about their meaning and importance for this problem.</li>
+<li><strong>Univariable study</strong>. I&#39;ll just focus on the dependent variable (&#39;Label&#39; : Fraud or not) and try to know a little bit more about it.</li>
+<li><strong>Multivariate study</strong>. I&#39;ll try to understand how the dependent variable and independent variables relate</li>
+<li><strong>Basic cleaning</strong>. I&#39;ll clean the dataset and handle the missing data, outliers and categorical variables.</li>
+
+</ul>
+<p>For more detail about these steps you can check my <a href='https://github.com/mouadzeghraoui/HealthCare_Fraud_Detection/blob/main/Exploratory_Data_Analysis.ipynb'>Jupyter Notebook</a> for EDA</p>
+<p>In order to understand our data, we can look at each variable and try to understand their meaning and relevance to this problem.</p>
+<p>For this I merged my Training datasets by our unique IDs, for both providers  and patients, and I generate a <strong>Data Report</strong>, to check the <strong>Data Description</strong>, <strong>Data Distribution</strong>, <strong>Missing Values</strong>, <strong>correlations</strong> etc.</p>
 <p>I used a powerful library called <a href='https://pypi.org/project/pandas-profiling/'>Pandas-Profiling</a>, to easly generate profile report for pandas DataFrame</p>
 <pre><code class='language-python' lang='python'>!pip install pandas-profiling[notebook] #install pandas-profiling
 from pandas_profiling import ProfileReport
 ProfileReport(fraud) #fraud is the name of my DataFrame
 </code></pre>
-
-<figure id="figure-columns-with-more-than-30-missing-values">
-  <a data-fancybox="" href="/post/health-care-fraud/DR.gif" data-caption="Data Report">
-  <img src="/post/health-care-fraud/DR.gif" alt="DR"  >
-</a>
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Data Report
-  </figcaption>
-</figure>
-
+<p><img src="/post/health-care-fraud/DR.gif" referrerpolicy="no-referrer" alt="DR"></p>
 <p>&nbsp;</p>
 <p>From the Data Report we can see that we have some features with 100% of Missing Data, and some features with high cardinality.</p>
 <ul>
@@ -319,16 +318,24 @@ ProfileReport(fraud) #fraud is the name of my DataFrame
 <p>And many more, all these questions help us to understand our Data, and to understand the fraudsters&#39; behaviour.</p>
 <p>In my visualization I prefer <a href='https://plotly.com/'>Plotly (and Dash)</a> rather than Matplotlib and Seaborn, </p>
 <p>I found that Matplotlib and Seaborn lacked some of the &quot;professional&quot; level aesthetic that I was looking for.</p>
-<p>We can observe in figure 1 that the <strong>Inpatient</strong> suffer from a lot of <strong>Chronic Diseases</strong> than the <strong>Outpatient</strong>. In the chart we can clearly observe that the median of chronic disease count is 6 for the inpatient and just 4 for the outpatient</p>
+<p>Let&#39;s go back to our analysis, and give <strong><em>some</em></strong> of my findings.</p>
+<p>We can observe in figure 2 that the <strong>Inpatient</strong> suffer from a lot of <strong>Chronic Diseases</strong> than the <strong>Outpatient</strong>. In the chart we can clearly observe that the median of chronic disease count is 6 for the inpatient and just 4 for the outpatient</p>
 <p>&nbsp;</p>
-<figure id="figure-columns-with-more-than-30-missing-values">
-  <a data-fancybox="" href="/post/health-care-fraud/fig1.png" data-caption="Figure 1">
-  <img src="/post/health-care-fraud/fig1.png" alt="DR"  >
-</a>
-  <figcaption data-pre="Figure " data-post=":" class="numbered">
-    Figure 1
-  </figcaption>
-</figure>
+<p align="middle">
+  <img src="/post/health-care-fraud/fig1.png"  width="70%">
+  <img src="/post/health-care-fraud/fig2.png" width="70%"> 
+</p>
+<p>&nbsp;</p>
+<p>We notice in Figure 3, that after the Age of 64, we have a huge increase in the  number of <strong>chronic diseases</strong>, it&#39;s clearly because people are getting older.</p>
+<p>We can also make an hypothesis, that the number of <strong>chronic diseases</strong> is highly correlated with the <strong>number of claims</strong></p>
+<p>&nbsp;</p>
+<p align="middle">
+  <img src="/post/health-care-fraud/fig3.png" width="70%">
+  <img src="/post/health-care-fraud/fig4.png" width="70%"> 
+</p>
+<p>We can also have an idea about our Top claimers, in this chart Figure 4, we can see that the claimer with <strong>Code ID : 78650</strong> has more fraudulent cases than normal cases. and also some top claimers have a highly <strong>fraud rate</strong>.  The insurance company need to investigate more on theses cases.</p>
+<p><img src="/post/health-care-fraud/fig5.png" referrerpolicy="no-referrer" alt="Screen Shot 2020-12-30 at 16.35.33"></p>
+<p>Now</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
